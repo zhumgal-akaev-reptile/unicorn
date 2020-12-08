@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>1bn COUNTDOWN</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: GT Walsheim Pro, sans-serif;
+        }
+        .text {
+            color: white;
+        }
+
+        .amber {
+            color: #f0bb4c;
+        }
+
+        .display-1 {
+            font-size: 30px;
+        }
+
+        .display-2 {
+            font-size: 40px;
+        }
+
+        .display-3 {
+            font-size: 130px;
+        }
+
+        .bg {
+            background: #154b77;
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .box {
+            width: 568px;
+            height: 380px;
+            margin: 50px 0;
+            position: relative;
+            overflow: hidden;
+            clip-path: url("#unicorn");
+            background: #103c61;
+        }
+
+        .percent {
+            position: absolute;
+            left: 60px;
+            top: 40px;
+            z-index:3;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            display: -webkit-flex;
+            align-items:center;
+            justify-content:center;
+            color:#fff;
+            font-size:50px;
+        }
+
+        .water {
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 2;
+            width: 100%;
+            height: 100%;
+            transform: translate(0, 100%);
+            background: #f0bb4c;
+            transition: all 0.3s;
+        }
+
+        .wave {
+            width: 200%;
+            position: absolute;
+            bottom: 100%;
+        }
+        .back {
+            right: 0;
+            fill: #ee962f;
+            animation: wave-back 4s infinite linear;
+        }
+
+        .front {
+            left: 0;
+            fill: #f0bb4c;
+            margin-bottom: -1px;
+            animation: wave-front 2s infinite linear;
+        }
+
+        .bubbles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .bubbles li {
+            position: fixed;
+            list-style: none;
+            display: block;
+            background-color: rgba(255, 255, 255, 0.15);
+            bottom: -120px;
+            animation: circle 2s infinite;
+            transition-timing-function: linear;
+            border-radius: 50%;
+        }
+
+        .bubbles li:nth-child(1) {
+            width: 40px;
+            height: 40px;
+            left: 20%;
+        }
+
+        .bubbles li:nth-child(2) {
+            width: 60px;
+            height: 60px;
+            left: 40%;
+            /*animation-delay: 1s;*/
+            animation-duration: 8s;
+        }
+
+        .bubbles li:nth-child(3) {
+            width: 50px;
+            height: 50px;
+            left: 60%;
+            /*animation-delay: 2s;*/
+            animation-duration: 7s;
+        }
+
+        .bubbles li:nth-child(4) {
+            width: 150px;
+            height: 150px;
+            left: 80%;
+            /*animation-delay: 1s;*/
+            animation-duration: 7s;
+        }
+        .bubbles li:nth-child(9) {
+            width: 150px;
+            height: 150px;
+            left: 10%;
+            /*animation-delay: 1s;*/
+            animation-duration: 7s;
+        }
+        .bubbles li:nth-child(10) {
+            width: 150px;
+            height: 150px;
+            left: 50%;
+            /*animation-delay: 1s;*/
+            animation-duration: 10s;
+        }
+        .bubbles li:nth-child(11) {
+            width: 150px;
+            height: 150px;
+            left: 70%;
+            /*animation-delay: 1s;*/
+            animation-duration: 4s;
+        }
+        .bubbles li:nth-child(12) {
+            width: 150px;
+            height: 150px;
+            left: 20%;
+            /*animation-delay: 4s;*/
+            animation-duration: 3s;
+        }
+
+        .bubbles li:nth-child(5) {
+            width: 90px;
+            height: 90px;
+            left: 50%;
+            /*animation-delay: 3s;*/
+            animation-duration: 9s;
+        }
+
+        .bubbles li:nth-child(6) {
+            width: 50px;
+            height: 50px;
+            left: 10%;
+            /*animation-delay: 1s;*/
+            animation-duration: 6s;
+        }
+
+        .bubbles li:nth-child(7) {
+            width: 75px;
+            height: 75px;
+            left: 70%;
+            /*animation-delay: 2.5s;*/
+            animation-duration: 6s;
+        }
+
+        .bubbles li:nth-child(8) {
+            width: 100px;
+            height: 100px;
+            left: 30%;
+            animation-delay: 3.5s;
+            animation-duration: 6s;
+        }
+
+        @keyframes circle {
+            0% {
+                -webkit-transform: translateY(0);
+                transform: translateY(0);
+            }
+            100% {
+                -webkit-transform: translateY(-1100px) rotate(800deg);
+                transform: translateY(-1100px) rotate(800deg);
+            }
+        }
+
+        @keyframes wave-front {
+            100% {
+                transform: translate(-50%, 0);
+            }
+        }
+
+        @keyframes wave-back {
+            100% {
+                transform: translate(50%, 0);
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="bg">
+    <ul class="bubbles">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <svg
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        x="0px"
+        y="0px"
+        style="display: none;"
+    >
+        <symbol id="wave">
+            <path
+                d="M420,20c21.5-0.4,38.8-2.5,51.1-4.5c13.4-2.2,26.5-5.2,27.3-5.4C514,6.5,518,4.7,528.5,2.7c7.1-1.3,17.9-2.8,31.5-2.7c0,0,0,0,0,0v20H420z"
+            ></path>
+            <path
+                d="M420,20c-21.5-0.4-38.8-2.5-51.1-4.5c-13.4-2.2-26.5-5.2-27.3-5.4C326,6.5,322,4.7,311.5,2.7C304.3,1.4,293.6-0.1,280,0c0,0,0,0,0,0v20H420z"
+            ></path>
+            <path
+                d="M140,20c21.5-0.4,38.8-2.5,51.1-4.5c13.4-2.2,26.5-5.2,27.3-5.4C234,6.5,238,4.7,248.5,2.7c7.1-1.3,17.9-2.8,31.5-2.7c0,0,0,0,0,0v20H140z"
+            ></path>
+            <path
+                d="M140,20c-21.5-0.4-38.8-2.5-51.1-4.5c-13.4-2.2-26.5-5.2-27.3-5.4C46,6.5,42,4.7,31.5,2.7C24.3,1.4,13.6-0.1,0,0c0,0,0,0,0,0l0,20H140z"
+            ></path>
+        </symbol>
+    </svg>
+    <div class="box">
+        <svg
+            width="568"
+            height="380"
+            viewBox="0 0 568 380"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <clipPath id="unicorn">
+                <path
+                    d="M563.756 254.682C562.646 251.908 550.718 249.504 547.945 249.041C533.89 246.545 521.592 250.983 490.709 251.445C515.674 213.997 460.936 138.454 486.548 144.464C500.695 147.793 506.428 143.355 515.397 148.625C527.695 155.837 535.924 143.632 538.698 135.495C542.951 123.29 518.079 120.423 510.496 111.732C502.914 103.04 504.486 99.2491 496.349 89.4478C493.206 85.6568 482.757 82.513 478.042 81.2185C479.428 77.7973 501.435 26.2023 511.883 1.51428C512.716 -0.335006 510.404 -0.797328 508.74 1.88414C486.271 36.4658 462.6 72.9892 458.994 78.8145C447.251 55.7908 445.864 73.2666 435.323 70.1228C440.686 73.1741 447.251 71.9721 444.569 80.2014C434.029 72.5269 424.597 59.212 420.066 62.7257C417.292 64.9448 411.282 72.6193 423.673 95.643C399.169 101.838 404.625 106.924 395.378 122.735C402.591 118.204 407.491 116.447 411.19 116.262C381.139 140.858 403.608 154.173 378.735 162.31C381.139 162.495 384.19 162.772 393.159 158.241C381.971 170.447 381.416 183.392 362.831 176.919C362.276 179.323 368.656 183.484 376.701 186.073C363.386 187.368 358.115 193.655 344.8 187.46C350.533 207.062 362.369 198.833 376.701 205.398C354.047 210.946 323.626 207.247 311.328 198.093C266.113 164.251 216.46 166.471 196.395 190.881C187.519 135.957 137.126 136.42 122.054 154.45C61.4898 227.127 54.555 188.385 65.0959 185.518C61.6747 181.172 50.9489 186.535 52.7057 194.117C47.2503 193.378 42.9969 169.152 30.5142 166.286C37.8189 167.95 38.7436 196.429 26.076 184.964C26.3534 211.501 61.5823 218.898 81.0922 212.24C71.9383 218.528 63.3391 220.377 44.2914 215.754C149.053 275.116 155.526 139.379 187.704 210.114C181.231 237.761 196.025 258.842 189.183 270.77C183.635 280.387 162.923 299.157 139.345 281.589C130.93 278.075 115.859 290.095 91.7256 304.057C48.5448 329.023 49.8393 308.958 31.9012 331.704C27.9252 336.697 19.511 337.437 11.8365 340.951C7.39817 342.893 -1.38594 373.406 0.185953 378.214C1.75785 382.93 21.3603 378.214 28.3876 365.176C60.8425 346.314 111.143 314.506 142.951 321.811C212.669 337.807 248.545 324.77 279.798 285.935C327.602 314.136 360.797 309.605 441.056 297.862C463.895 313.027 528.065 282.421 543.136 272.342C546.373 270.216 546.743 272.065 545.263 274.376C517.061 319.499 505.503 302.301 499.216 326.526C496.812 335.588 476.839 336.605 473.696 337.899C470.459 339.194 467.038 373.128 474.62 369.337C479.151 367.118 492.466 362.218 495.61 354.081C520.39 333.276 555.989 297.308 567.085 274.839C568.749 271.325 566.437 261.247 563.756 254.682Z"
+                    fill="#103C61"
+                />
+            </clipPath>
+        </svg>
+        <div id="water" class="water">
+            <svg viewBox="0 0 560 20" class="wave back">
+                <use xlink:href="#wave"></use>
+            </svg>
+            <svg viewBox="0 0 560 20" class="wave front">
+                <use xlink:href="#wave"></use>
+            </svg>
+        </div>
+        <p class="display-1 percent" style="margin-top: 20px;">
+            <b id="percent">0</b>
+            <b>%</b>
+        </p>
+    </div>
+    <div class="text">
+        <p class="display-2"><span class="amber">1 BILLION</span> Countdown</p>
+        <h1 class="display-3" style="margin: 20px 0;">
+            <span id="total">0</span>
+            <span class="amber">€</span>
+        </h1>
+        <p class="amber display-1">
+            Total <b>Issued</b> amount from <b>Beginning</b>
+        </p>
+    </div>
+</div>
+
+<script type="application/javascript">
+    document.addEventListener('DOMContentLoaded', () => {
+        const totalRef = document.getElementById('total');
+        const waterRef = document.getElementById('water');
+        const percentRef = document.getElementById('percent');
+
+        const BILLION = 1000000000;
+        const REFRESH_RATE = 1000;
+        const BASE_URL =
+            "https://tableau-dashboards.sunfinance-analytics.com/sales-amount.html";
+        let percentage = percentRef ? +percentRef.innerText : 0;
+        let total = totalRef ? +totalRef.innerText : 0;
+        let difference = 0;
+
+        // FUNCTIONS
+        function formatNumber(value) {
+            return String(value).replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+        }
+
+        async function fetchTotal() {
+            const response = await fetch(BASE_URL);
+            const [firstTotal, lastTotal] = (await response.text()).split('\n');
+            total = +firstTotal;
+            difference = Math.floor((+lastTotal - +firstTotal) / 60);
+            totalRef.innerHTML = formatNumber(total);
+            percentage = Math.floor((total / BILLION) * 100);
+            percentRef.innerHTML = String(percentage);
+            waterRef.style.transform='translate(0' + ',' + (100-percentage) + '%)';
+        }
+
+       function debounceFetchTotal() {
+            let fetchInterval = 0;
+            fetchInterval = setInterval(function() {
+                fetchTotal()
+                if (total === BILLION) {
+                    clearInterval(fetchInterval);
+                }
+            }, REFRESH_RATE * 60);
+        }
+
+        function incrementTotal() {
+            let refreshInterval = 0;
+            refreshInterval = setInterval(() => {
+                total += difference;
+                totalRef.innerHTML = formatNumber(total);
+                if (total === BILLION) {
+                    clearInterval(refreshInterval);
+                }
+            }, 1000);
+        }
+
+        fetchTotal()
+        debounceFetchTotal()
+        incrementTotal()
+    })
+</script>
+</body>
+</html>
